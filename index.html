@@ -1,291 +1,68 @@
 
-    <!DOCTYPE html>
-    <html lang="ja">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スロット予想結果</title>
-    <style>
-    body {
-        font-family: sans-serif;
-        padding: 16px;
-        background: #f5f5f5;
-    }
-    h1 {
-        font-size: 24px;
-    }
-    h2 {
-        font-size: 20px;
-        margin-top: 10px;
-    }
-    .buttons {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 16px;
-    }
-    button {
-        flex: 1;
-        padding: 12px;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        border-radius: 10px;
-        background: #333;
-        color: white;
-    }
-    .card {
-        background: white;
-        padding: 14px;
-        margin-bottom: 12px;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px #ccc;
-    }
-    .rank {
-        font-size: 22px;
-        font-weight: bold;
-    }
-    .score {
-        color: #d00000;
-        font-weight: bold;
-    }
-    .section {
-        display: none;
-    }
-    .section.active {
-        display: block;
-    }
-    </style>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スロット予想結果</title>
 
-    <h1>スロット予想結果</h1>
+<style>
+body {
+    font-family: sans-serif;
+    padding: 16px;
+    background: #f5f5f5;
+    overflow-x: hidden;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 24px;
+}
+.menu-button {
+    display: block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px;
+    margin: 16px 0;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.back {
+    display: block;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 18px;
+}
+.card {
+    background: white;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ccc;
+    position: relative;
+    z-index: 1;
+}
+.rank {
+    font-size: 26px;
+    font-weight: bold;
+}
+.score {
+    color: #d00000;
+    font-weight: bold;
+}
+</style>
 
-    <div class="buttons">
-        <button onclick="showSection('god')">GOD</button>
-        <button onclick="showSection('vvv')">VVV2</button>
-    </div>
+</head>
+<body>
 
-    
-        <div class="section active" id="god">
-        <h2>ミリオンゴッド 神々の軌跡</h2>
-        <p>予想日：2026-05-07</p>
-        
-            <div class="card">
-            <div class="rank">
-            1位：1169番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">89.04</span></div>
-            貢献TOP3：
-            1168(59%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            2位：1171番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">84.12</span></div>
-            貢献TOP3：
-            1168(50%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            3位：1170番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">67.73</span></div>
-            貢献TOP3：
-            1168(48%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            4位：1164番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">67.72</span></div>
-            貢献TOP3：
-            1164(49%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            5位：1177番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">59.13</span></div>
-            貢献TOP3：
-            1164(40%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            6位：1166番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">56.22</span></div>
-            貢献TOP3：
-            1168(57%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            7位：1175番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">53.74</span></div>
-            貢献TOP3：
-            1168(59%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            8位：1176番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">52.41</span></div>
-            貢献TOP3：
-            1164(45%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            9位：1165番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">40.24</span></div>
-            貢献TOP3：
-            1168(53%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            10位：1168番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">34.37</span></div>
-            貢献TOP3：
-            1164(42%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            11位：1172番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">33.24</span></div>
-            貢献TOP3：
-            1164(42%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            12位：1174番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">28.70</span></div>
-            貢献TOP3：
-            1168(37%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            13位：1173番台 [B島]
-            </div>
-            <div>最終スコア：<span class="score">17.01</span></div>
-            貢献TOP3：
-            1164(83%) [A島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            14位：1167番台 [A島]
-            </div>
-            <div>最終スコア：<span class="score">15.98</span></div>
-            貢献TOP3：
-            1164(59%) [A島]</div>
-            </div>
-            
-        </div>
-        
-    
-        <div class="section" id="vvv">
-        <h2>ヴァルヴレイヴ2</h2>
-        <p>予想日：2026-05-07</p>
-        
-            <div class="card">
-            <div class="rank">
-            1位：1183番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">89.52</span></div>
-            貢献TOP3：
-            1185(66%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            2位：1182番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">76.63</span></div>
-            貢献TOP3：
-            1185(67%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            3位：1178番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">74.32</span></div>
-            貢献TOP3：
-            1185(75%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            4位：1184番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">72.93</span></div>
-            貢献TOP3：
-            1185(66%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            5位：1185番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">71.66</span></div>
-            貢献TOP3：
-            1185(62%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            6位：1180番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">65.42</span></div>
-            貢献TOP3：
-            1185(62%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            7位：1179番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">59.87</span></div>
-            貢献TOP3：
-            1185(61%) [VVV島]</div>
-            </div>
-            
-            <div class="card">
-            <div class="rank">
-            8位：1181番台 [VVV島]
-            </div>
-            <div>最終スコア：<span class="score">53.90</span></div>
-            貢献TOP3：
-            1185(55%) [VVV島]</div>
-            </div>
-            
-        </div>
-        
+<h1>スロット予想結果</h1>
 
-    <script>
-    function showSection(id) {
-        document.getElementById('god').classList.remove('active');
-        document.getElementById('vvv').classList.remove('active');
-        document.getElementById(id).classList.add('active');
-    }
-    </script>
+<a class="menu-button" href="god.html">GODを見る</a>
+<a class="menu-button" href="vvv.html">VVV2を見る</a>
 
-    </body>
-    </html>
-    
+</body>
+</html>
