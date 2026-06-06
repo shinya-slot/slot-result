@@ -85,6 +85,71 @@
             border-radius: 8px;
             font-size: 14px;
         }
+
+        .card {
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
+            display: block;
+            clear: both;
+            float: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+                overflow-x: hidden;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 100%;
+                margin: 12px 0;
+                padding: 14px;
+                box-sizing: border-box;
+            }
+
+            .link-line {
+                white-space: normal;
+                word-break: keep-all;
+            }
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body > div,
+        .section {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            clear: both;
+        }
+
+        .card {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 12px 0 !important;
+            float: none !important;
+            clear: both !important;
+        }
+
+        .card .card {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .section > .card {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+
         </style>
         
         </head>
@@ -119,343 +184,343 @@
                                 <h3>復活検出</h3><p>1225</p>
                                 <div class='machine_rank_list'><b>台番順位一覧</b><br>1197:15位　1198:19位　1199:17位　1200:4位　1201:<span class='rank_top3'>2位</span>　1202:<span class='rank_top3'>1位</span>　1203:13位　<br>1204:12位　1205:5位　1216:10位　1217:16位　<br>1218:8位　1219:14位　1220:20位　1221:9位　1222:18位　1223:11位　1224:7位　<br>1225:<span class='rank_top3'>3位</span>　1226:6位　</div><br>
                         <div class="card">
-                        <div class="rank">1位：1202番台 [A島]</div>
-                        <div>最終pt : <span class="score">79.01</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">1位：1202番台 [A島]</div>
+                            <div>最終pt：<span class="score">79.01</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1202　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1202　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1202　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1202　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1202　連動率：2/3 (67%)　pt：14.01</div><div class='link-line'>4 1202（1日前）→1202　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1202　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1202　連動率：2/2 (100%)　pt：21.0</div><div class='link-line'>3 1218（1日前）→1202　連動率：2/3 (67%)　pt：20.01</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1202　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1202　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1202　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1202　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1202　連動率：2/3 (67%)　pt：14.01</div><div class='link-line'>4 1202（1日前）→1202　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1202　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1202　連動率：2/2 (100%)　pt：21.0</div><div class='link-line'>3 1218（1日前）→1202　連動率：2/3 (67%)　pt：20.01</div></div>
 
-                        <div>据え置き率：20.0% (1/5)</div>
-                        <div>復活率：25.0% (1/4)</div>
-                        <div>高設定回数：5回 (5/30)</div>
-                        <div>直近設定：4→4→1→2→4</div>
-                        <div>周期：1日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">2位：1200番台 [A島]</div>
-                        <div>最終pt : <span class="score">72.98</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1200　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1200　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1200　連動率：1/2 (50%)　pt：25.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1200　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1200　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>4 1202（1日前）→1200　連動率：2/5 (40%)　pt：16.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1200　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1200　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1200　連動率：1/3 (33%)　pt：9.99</div></div>
-
-                        <div>据え置き率：33.3% (1/3)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：-1→6→4→3→1→1</div>
-                        <div>周期：4日</div>
+                            <div>据え置き率：20.0% (1/5)</div>
+                            <div>復活率：25.0% (1/4)</div>
+                            <div>高設定回数：5回 (5/30)</div>
+                            <div>直近設定：4→4→1→2→4</div>
+                            <div>周期：1日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">3位：1225番台 [B島]</div>
-                        <div>最終pt : <span class="score">50.00</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">2位：1200番台 [A島]</div>
+                            <div>最終pt：<span class="score">72.98</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1225　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1225　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1225　連動率：1/2 (50%)　pt：25.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1225　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1225　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1225　連動率：2/5 (40%)　pt：16.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1225　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1225　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1225　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1200　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1200　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1200　連動率：1/2 (50%)　pt：25.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1200　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1200　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>4 1202（1日前）→1200　連動率：2/5 (40%)　pt：16.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1200　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1200　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1200　連動率：1/3 (33%)　pt：9.99</div></div>
 
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：1→-3→4→1→2→2</div>
-                        <div>周期：4日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">4位：1201番台 [A島]</div>
-                        <div>最終pt : <span class="score">35.48</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1201　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1201　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1201　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1201　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1201　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>4 1202（1日前）→1201　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1201　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1201　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1201　連動率：1/3 (33%)　pt：9.99</div></div>
-
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：1→6→1→-2→5</div>
-                        <div>周期：1日</div>
+                            <div>据え置き率：33.3% (1/3)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：-1→6→4→3→1→1</div>
+                            <div>周期：4日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">5位：1205番台 [A島]</div>
-                        <div>最終pt : <span class="score">23.99</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">3位：1225番台 [B島]</div>
+                            <div>最終pt：<span class="score">50.00</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1205　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1205　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1205　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1205　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1205　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1205　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1205　連動率：2/3 (67%)　pt：9.0</div><div class='link-line'>3 1221（2日前）→1205　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1205　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1225　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1225　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1225　連動率：1/2 (50%)　pt：25.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1225　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1225　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1225　連動率：2/5 (40%)　pt：16.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1225　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1225　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1225　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/4)</div>
-                        <div>復活率：25.0% (1/4)</div>
-                        <div>高設定回数：4回 (4/30)</div>
-                        <div>直近設定：1→1→1→4→2→-2</div>
-                        <div>周期：3日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">6位：1203番台 [A島]</div>
-                        <div>最終pt : <span class="score">17.49</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1203　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1203　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1203　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1203　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1203　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1203　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1203　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1203　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1203　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：50.0% (1/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：2→-2→-2→3→2→1</div>
-                        <div>周期：12日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：1→-3→4→1→2→2</div>
+                            <div>周期：4日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">7位：1224番台 [B島]</div>
-                        <div>最終pt : <span class="score">15.99</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">4位：1201番台 [A島]</div>
+                            <div>最終pt：<span class="score">35.48</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1224　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1224　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1224　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1224　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1224　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1224　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1224　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1224　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1224　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1201　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1201　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1201　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1201　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1201　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>4 1202（1日前）→1201　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1201　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1201　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1201　連動率：1/3 (33%)　pt：9.99</div></div>
 
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：4→1→-2→1→1</div>
-                        <div>周期：6日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">8位：1226番台 [B島]</div>
-                        <div>最終pt : <span class="score">13.50</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1226　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1226　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1226　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1226　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1226　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1226　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1226　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1226　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1226　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：4→1→1→-3→2→3</div>
-                        <div>周期：6日</div>
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→6→1→-2→5</div>
+                            <div>周期：1日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">9位：1221番台 [B島]</div>
-                        <div>最終pt : <span class="score">9.00</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">5位：1205番台 [A島]</div>
+                            <div>最終pt：<span class="score">23.99</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1221　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1221　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1221　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1221　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1221　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1221　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1205　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1205　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1205　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1205　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1205　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1205　連動率：1/5 (20%)　pt：8.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1205　連動率：2/3 (67%)　pt：9.0</div><div class='link-line'>3 1221（2日前）→1205　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1205　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：6→3→3→1→3→3</div>
-                        <div>周期：6日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">10位：1218番台 [B島]</div>
-                        <div>最終pt : <span class="score">9.00</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1218　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1218　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1218　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1218　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1218　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1218　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1218　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1218　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1218　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：6→1→-3→1→3→3</div>
-                        <div>周期：6日</div>
+                            <div>据え置き率：0.0% (0/4)</div>
+                            <div>復活率：25.0% (1/4)</div>
+                            <div>高設定回数：4回 (4/30)</div>
+                            <div>直近設定：1→1→1→4→2→-2</div>
+                            <div>周期：3日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">11位：1199番台 [A島]</div>
-                        <div>最終pt : <span class="score">9.00</span></div>
-                        <div>
-                            基準台：1201(基準)
-                            基準スコア：+0.0
-                        </div>
+                            <div class="rank">6位：1203番台 [A島]</div>
+                            <div>最終pt：<span class="score">17.49</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1199　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1199　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1199　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1199　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1199　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1199　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1199　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1199　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1199　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1203　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1203　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1203　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1203　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1203　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1203　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1203　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1203　連動率：1/2 (50%)　pt：10.5</div><div class='link-line'>3 1218（1日前）→1203　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：-3→1→1</div>
-                        <div>周期：9日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">12位：1204番台 [A島]</div>
-                        <div>最終pt : <span class="score">6.99</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1204　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1204　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1204　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1204　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1204　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1204　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1204　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1204　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1204　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：1→1→-1→1→1→2</div>
-                        <div>周期：10日</div>
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：50.0% (1/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：2→-2→-2→3→2→1</div>
+                            <div>周期：12日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">13位：1197番台 [A島]</div>
-                        <div>最終pt : <span class="score">6.99</span></div>
-                        <div>
-                            基準台：1218(基準)
-                            基準スコア：+0.2
-                        </div>
+                            <div class="rank">7位：1224番台 [B島]</div>
+                            <div>最終pt：<span class="score">15.99</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1197　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1197　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1197　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1197　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1197　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1197　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1197　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1197　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1197　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1224　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1224　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1224　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1224　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1224　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1224　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1224　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1224　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1224　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：50.0% (1/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：-1→1→1→1→1→-1</div>
-                        <div>周期：14日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">14位：1216番台 [B島]</div>
-                        <div>最終pt : <span class="score">4.50</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1216　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1216　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1216　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1216　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1216　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1216　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1216　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1216　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1216　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：1→1→-2→-3→3→-3</div>
-                        <div>周期：9日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：4→1→-2→1→1</div>
+                            <div>周期：6日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">15位：1223番台 [B島]</div>
-                        <div>最終pt : <span class="score">4.50</span></div>
-                        <div>
-                            基準台：1202(基準)
-                            基準スコア：+2.0
-                        </div>
+                            <div class="rank">8位：1226番台 [B島]</div>
+                            <div>最終pt：<span class="score">13.50</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1223　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1223　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1223　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1223　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1223　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1223　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1223　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1223　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1223　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1226　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1226　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1226　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1226　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1226　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1226　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1226　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1226　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1226　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：1→1→3→3→1→1</div>
-                        <div>周期：9日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">16位：1219番台 [B島]</div>
-                        <div>最終pt : <span class="score">4.50</span></div>
-                        <div>
-                            基準台：1201(基準)
-                            基準スコア：+0.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1219　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1219　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1219　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1219　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1219　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1219　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1219　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1219　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1219　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/1)</div>
-                        <div>復活率：0.0% (0/1)</div>
-                        <div>高設定回数：1回 (1/30)</div>
-                        <div>直近設定：1→3→2→5→1→1</div>
-                        <div>周期：3日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：4→1→1→-3→2→3</div>
+                            <div>周期：6日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">17位：1217番台 [B島]</div>
-                        <div>最終pt : <span class="score">4.50</span></div>
-                        <div>
-                            基準台：1218(基準)
-                            基準スコア：+0.2
-                        </div>
+                            <div class="rank">9位：1221番台 [B島]</div>
+                            <div>最終pt：<span class="score">9.00</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1217　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1217　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1217　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1217　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1217　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1217　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1217　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1217　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1217　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1221　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1221　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1221　連動率：2/4 (50%)　pt：9.0</div><div class='link-line'>3 1218（2日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1221　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1221　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1221　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1221　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：50.0% (1/2)</div>
-                        <div>復活率：0.0% (0/1)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：1→3→-2→1→1→-2</div>
-                        <div>周期：9日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">18位：1222番台 [B島]</div>
-                        <div>最終pt : <span class="score">4.50</span></div>
-                        <div>
-                            基準台：1201(基準)
-                            基準スコア：+0.2
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1222　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1222　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1222　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1222　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1222　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1222　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1222　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1222　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1222　連動率：0/3 (0%)　pt：0.0</div></div>
-
-                        <div>据え置き率：0.0% (0/1)</div>
-                        <div>復活率：0.0% (0/1)</div>
-                        <div>高設定回数：1回 (1/30)</div>
-                        <div>直近設定：3→1→1→1→-2→-2</div>
-                        <div>周期：9日</div>
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：6→3→3→1→3→3</div>
+                            <div>周期：6日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">19位：1198番台 [A島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1201(基準)
-                            基準スコア：+0.2
-                        </div>
+                            <div class="rank">10位：1218番台 [B島]</div>
+                            <div>最終pt：<span class="score">9.00</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1198　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1198　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1198　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1198　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1198　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1198　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1218　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1218　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1218　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1218　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1218　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1218　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1218　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1218　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1218　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0.0% (0/1)</div>
-                        <div>復活率：0.0% (0/1)</div>
-                        <div>高設定回数：1回 (1/30)</div>
-                        <div>直近設定：3→1→2→1→-1→1</div>
-                        <div>周期：10日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：6→1→-3→1→3→3</div>
+                            <div>周期：6日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">20位：1220番台 [B島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1201(基準)
-                            基準スコア：+0.2
+                            <div class="rank">11位：1199番台 [A島]</div>
+                            <div>最終pt：<span class="score">9.00</span></div>
+                            <div>
+                                基準台：1201(基準)
+                                基準スコア：0.0
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1199　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1199　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1199　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1199　連動率：1/4 (25%)　pt：4.5</div><div class='link-line'>3 1218（2日前）→1199　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1199　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1199　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1199　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1199　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：-3→1→1</div>
+                            <div>周期：9日</div>
                         </div>
+                        
+                        <div class="card">
+                            <div class="rank">12位：1204番台 [A島]</div>
+                            <div>最終pt：<span class="score">6.99</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1220　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1220　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1220　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1220　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1220　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1220　連動率：0/3 (0%)　pt：0.0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1204　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1204　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1204　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1204　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1204　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1204　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1204　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1204　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1204　連動率：0/3 (0%)　pt：0.0</div></div>
 
-                        <div>据え置き率：0% (0/0)</div>
-                        <div>復活率：0% (0/0)</div>
-                        <div>高設定回数：0回 (0/30)</div>
-                        <div>直近設定：1→1→1→1→-3</div>
-                        <div>周期：-日</div>
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→-1→1→1→2</div>
+                            <div>周期：10日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">13位：1197番台 [A島]</div>
+                            <div>最終pt：<span class="score">6.99</span></div>
+                            <div>
+                                基準台：1218(基準)
+                                基準スコア：0.2
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1197　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1197　連動率：1/3 (33%)　pt：6.99</div><div class='link-line'>5 1201（1日前）→1197　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1197　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1197　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1197　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1197　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1197　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1197　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：50.0% (1/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：-1→1→1→1→1→-1</div>
+                            <div>周期：14日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">14位：1216番台 [B島]</div>
+                            <div>最終pt：<span class="score">4.50</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1216　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1216　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1216　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1216　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1216　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1216　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1216　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1216　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1216　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：1→1→-2→-3→3→-3</div>
+                            <div>周期：9日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">15位：1223番台 [B島]</div>
+                            <div>最終pt：<span class="score">4.50</span></div>
+                            <div>
+                                基準台：1202(基準)
+                                基準スコア：2.0
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1223　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1223　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1223　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1223　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1223　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1223　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1223　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1223　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1223　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→3→3→1→1</div>
+                            <div>周期：9日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">16位：1219番台 [B島]</div>
+                            <div>最終pt：<span class="score">4.50</span></div>
+                            <div>
+                                基準台：1201(基準)
+                                基準スコア：0.0
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1219　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1219　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1219　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1219　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1219　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1219　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1219　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1219　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1219　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/1)</div>
+                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：1回 (1/30)</div>
+                            <div>直近設定：1→3→2→5→1→1</div>
+                            <div>周期：3日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">17位：1217番台 [B島]</div>
+                            <div>最終pt：<span class="score">4.50</span></div>
+                            <div>
+                                基準台：1218(基準)
+                                基準スコア：0.2
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1217　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1217　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1217　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1217　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1217　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1217　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1217　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1217　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1217　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：50.0% (1/2)</div>
+                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→3→-2→1→1→-2</div>
+                            <div>周期：9日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">18位：1222番台 [B島]</div>
+                            <div>最終pt：<span class="score">4.50</span></div>
+                            <div>
+                                基準台：1201(基準)
+                                基準スコア：0.2
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1222　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1222　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1222　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1222　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1222　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1222　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1222　連動率：1/3 (33%)　pt：4.5</div><div class='link-line'>3 1221（2日前）→1222　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1222　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/1)</div>
+                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：1回 (1/30)</div>
+                            <div>直近設定：3→1→1→1→-2→-2</div>
+                            <div>周期：9日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">19位：1198番台 [A島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1201(基準)
+                                基準スコア：0.2
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1198　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1198　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1198　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1198　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1198　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1198　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1198　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0.0% (0/1)</div>
+                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：1回 (1/30)</div>
+                            <div>直近設定：3→1→2→1→-1→1</div>
+                            <div>周期：10日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">20位：1220番台 [B島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1201(基準)
+                                基準スコア：0.2
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1219（3日前）→1220　連動率：0/1 (0%)　pt：0.0</div><div class='link-line'>3 1216（2日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>5 1201（1日前）→1220　連動率：0/2 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1205（3日前）→1220　連動率：0/4 (0%)　pt：0.0</div><div class='link-line'>3 1218（2日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>4 1202（1日前）→1220　連動率：0/5 (0%)　pt：0.0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>3 1200（3日前）→1220　連動率：0/3 (0%)　pt：0.0</div><div class='link-line'>3 1221（2日前）→1220　連動率：0/2 (0%)　pt：0.0</div><div class='link-line'>3 1218（1日前）→1220　連動率：0/3 (0%)　pt：0.0</div></div>
+
+                            <div>据え置き率：0% (0/0)</div>
+                            <div>復活率：0% (0/0)</div>
+                            <div>高設定回数：0回 (0/30)</div>
+                            <div>直近設定：1→1→1→1→-3</div>
+                            <div>周期：-日</div>
                         </div>
                         
                                 </div> 

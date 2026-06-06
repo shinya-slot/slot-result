@@ -85,6 +85,71 @@
             border-radius: 8px;
             font-size: 14px;
         }
+
+        .card {
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
+            display: block;
+            clear: both;
+            float: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+                overflow-x: hidden;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 100%;
+                margin: 12px 0;
+                padding: 14px;
+                box-sizing: border-box;
+            }
+
+            .link-line {
+                white-space: normal;
+                word-break: keep-all;
+            }
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body > div,
+        .section {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            clear: both;
+        }
+
+        .card {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 12px 0 !important;
+            float: none !important;
+            clear: both !important;
+        }
+
+        .card .card {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .section > .card {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+
         </style>
         
         </head>
@@ -101,139 +166,139 @@
                                 <h3>復活検出</h3><p>なし</p>
                                 <div class='machine_rank_list'><b>台番順位一覧</b><br>1178:<span class='rank_top3'>1位</span>　1179:8位　1180:6位　1181:5位　1182:<span class='rank_top3'>3位</span>　1183:4位　1188:<span class='rank_top3'>2位</span>　1189:7位　</div><br>
                         <div class="card">
-                        <div class="rank">1位：1183番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">3.60</span></div>
-                        <div>
-                            基準台：1188(基準)
-                            基準スコア：+1.3
-                        </div>
+                            <div class="rank">1位：1183番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">3.60</span></div>
+                            <div>
+                                基準台：1188(基準)
+                                基準スコア：1.3
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1183　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1183　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1183　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1183　連動率：0/0 (0%)　pt：0</div></div>
 
-                        <div>据え置き率：0.0% (0/4)</div>
-                        <div>復活率：25.0% (1/4)</div>
-                        <div>高設定回数：4回 (4/30)</div>
-                        <div>直近設定：1→1→3→1→-2→-2</div>
-                        <div>周期：13日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">2位：1180番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">3.60</span></div>
-                        <div>
-                            基準台：1182(基準)
-                            基準スコア：+0.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1180　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div>
-
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：66.7% (2/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：-3→1→1→1→1→-1</div>
-                        <div>周期：18日</div>
+                            <div>据え置き率：0.0% (0/4)</div>
+                            <div>復活率：25.0% (1/4)</div>
+                            <div>高設定回数：4回 (4/30)</div>
+                            <div>直近設定：1→1→3→1→-2→-2</div>
+                            <div>周期：13日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">3位：1189番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">3.60</span></div>
-                        <div>
-                            基準台：1179(基準)
-                            基準スコア：+0.7
-                        </div>
+                            <div class="rank">2位：1180番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">3.60</span></div>
+                            <div>
+                                基準台：1182(基準)
+                                基準スコア：0.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1189　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1180　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1180　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1180　連動率：0/0 (0%)　pt：0</div></div>
 
-                        <div>据え置き率：0.0% (0/2)</div>
-                        <div>復活率：0.0% (0/2)</div>
-                        <div>高設定回数：2回 (2/30)</div>
-                        <div>直近設定：2→1→1→1→1→-2</div>
-                        <div>周期：8日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">4位：1178番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1182(基準)
-                            基準スコア：+0.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1178　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div>
-
-                        <div>据え置き率：0.0% (0/5)</div>
-                        <div>復活率：40.0% (2/5)</div>
-                        <div>高設定回数：5回 (5/30)</div>
-                        <div>直近設定：-1→6→2→4→1→1</div>
-                        <div>周期：3日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：66.7% (2/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：-3→1→1→1→1→-1</div>
+                            <div>周期：18日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">5位：1182番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1188(基準)
-                            基準スコア：+1.3
-                        </div>
+                            <div class="rank">3位：1189番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">3.60</span></div>
+                            <div>
+                                基準台：1179(基準)
+                                基準スコア：0.7
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1182　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1189　連動率：1/5 (20%)　pt：3.6</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1189　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1189　連動率：0/0 (0%)　pt：0</div></div>
 
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：0.0% (0/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：1→1→1→1→1→1</div>
-                        <div>周期：7日</div>
-                        </div>
-                        
-                        <div class="card">
-                        <div class="rank">6位：1188番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1182(基準)
-                            基準スコア：+0.0
-                        </div>
-
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1188　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div>
-
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：33.3% (1/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：6→1→3→1→-3→1</div>
-                        <div>周期：6日</div>
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：2→1→1→1→1→-2</div>
+                            <div>周期：8日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">7位：1181番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1188(基準)
-                            基準スコア：+1.3
-                        </div>
+                            <div class="rank">4位：1178番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1182(基準)
+                                基準スコア：0.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1181　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1178　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1178　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1178　連動率：0/0 (0%)　pt：0</div></div>
 
-                        <div>据え置き率：0.0% (0/3)</div>
-                        <div>復活率：0.0% (0/3)</div>
-                        <div>高設定回数：3回 (3/30)</div>
-                        <div>直近設定：1→-3→1→1→1</div>
-                        <div>周期：7日</div>
+                            <div>据え置き率：0.0% (0/5)</div>
+                            <div>復活率：40.0% (2/5)</div>
+                            <div>高設定回数：5回 (5/30)</div>
+                            <div>直近設定：-1→6→2→4→1→1</div>
+                            <div>周期：3日</div>
                         </div>
                         
                         <div class="card">
-                        <div class="rank">8位：1179番台 [VVV島]</div>
-                        <div>最終pt : <span class="score">0.00</span></div>
-                        <div>
-                            基準台：1179(基準)
-                            基準スコア：+0.7
+                            <div class="rank">5位：1182番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1188(基準)
+                                基準スコア：1.3
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1182　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1182　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1182　連動率：0/0 (0%)　pt：0</div></div>
+
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：0.0% (0/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：1→1→1→1→1→1</div>
+                            <div>周期：7日</div>
                         </div>
+                        
+                        <div class="card">
+                            <div class="rank">6位：1188番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1182(基準)
+                                基準スコア：0.0
+                            </div>
 
-                        <div class='link-grid'><div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1179　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div>
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1188　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1188　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1188　連動率：0/0 (0%)　pt：0</div></div>
 
-                        <div>据え置き率：0% (0/0)</div>
-                        <div>復活率：0% (0/0)</div>
-                        <div>高設定回数：0回 (0/30)</div>
-                        <div>直近設定：1→1→1→1→1→1</div>
-                        <div>周期：38日</div>
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：33.3% (1/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：6→1→3→1→-3→1</div>
+                            <div>周期：6日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">7位：1181番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1188(基準)
+                                基準スコア：1.3
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1181　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1181　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1181　連動率：0/0 (0%)　pt：0</div></div>
+
+                            <div>据え置き率：0.0% (0/3)</div>
+                            <div>復活率：0.0% (0/3)</div>
+                            <div>高設定回数：3回 (3/30)</div>
+                            <div>直近設定：1→-3→1→1→1</div>
+                            <div>周期：7日</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="rank">8位：1179番台 [VVV島]</div>
+                            <div>最終pt：<span class="score">0.00</span></div>
+                            <div>
+                                基準台：1179(基準)
+                                基準スコア：0.7
+                            </div>
+
+                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>4 1178（3日前）→1179　連動率：0/5 (0%)　pt：0.0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>0 None（3日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>0 None（3日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（2日前）→1179　連動率：0/0 (0%)　pt：0</div><div class='link-line'>0 None（1日前）→1179　連動率：0/0 (0%)　pt：0</div></div>
+
+                            <div>据え置き率：0% (0/0)</div>
+                            <div>復活率：0% (0/0)</div>
+                            <div>高設定回数：0回 (0/30)</div>
+                            <div>直近設定：1→1→1→1→1→1</div>
+                            <div>周期：38日</div>
                         </div>
                         
                                 </div> 
