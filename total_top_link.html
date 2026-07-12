@@ -1,455 +1,478 @@
    
-        <!DOCTYPE html>
-        <html lang="ja">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>総合TOP</title>
-        
-        <style>
+            <!DOCTYPE html>
+            <html lang="ja">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>総合TOP</title>
+            
+    <style>
+    body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+        padding: 12px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    h1 {
+    font-size: 24px;
+    }
+    h2 {
+    font-size: 24px;
+    }
+    .predict-date{
+        font-size:18px;
+        font-weight:bold;
+        margin-bottom:18px;
+        color:#444;
+    }
+    .menu-button {
+    display: block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px;
+    margin: 16px 0;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    }
+    .link-row{
+        margin-top:10px;
+        line-height:1.4;
+    }
+
+    .link-rate{
+        color:#1565ff;
+        font-weight:bold;
+        margin-left:20px;
+    }
+    .back {
+    display: block;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 18px;
+    }
+
+    .machine_rank_list{
+        font-size:16px;
+        line-height:1.8;
+        margin-bottom:15px;
+    }
+    .rank_top3{
+        color:#d00000;
+        font-weight:bold;
+    }
+
+    .rank-top{
+        color:#d60000;
+        font-weight:bold;
+    }
+
+    .total-card-link{
+        display:block;
+        text-decoration:none;
+        color:inherit;
+    }
+
+    .total-card{
+        background:white;
+        border-radius:12px;
+        padding:14px;
+        margin:12px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .total-rank{
+        font-size:18px;
+        font-weight:bold;
+    }
+
+    .total-main{
+        font-size:18px;
+        font-weight:bold;
+        margin-top:4px;
+    }
+
+    .total-main span{
+        font-size:18px;
+    }
+
+    .total-score{
+        font-size:18px;
+        font-weight:bold;
+        color:#d60000;
+        margin-top:6px;
+    }
+
+    .total-sub{
+        font-size:12px;
+        margin-top:4px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+    .rank {
+    font-size: 22px;
+    font-weight: bold;
+    }
+    .score {
+    color: #d00000;
+    font-weight: bold;
+    }
+    .prev-top3-box {
+        background: #fff8dc;
+        border-left: 5px solid orange;
+        padding: 4px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        display: block;
+        clear: both;
+        float: none;
+    }
+
+    @media screen and (max-width: 600px) {
         body {
-            font-family: sans-serif;
-            background: #f5f5f5;
-            padding: 12px;
-            margin: 0;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        h1 {
-        font-size: 24px;
-        }
-        h2 {
-        font-size: 24px;
-        }
-        .predict-date{
-            font-size:18px;
-            font-weight:bold;
-            margin-bottom:18px;
-            color:#444;
-        }
-        .menu-button {
-        display: block;
-        background: #333;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        padding: 18px;
-        margin: 16px 0;
-        border-radius: 12px;
-        font-size: 24px;
-        font-weight: bold;
-        }
-        .link-row{
-            margin-top:10px;
-            line-height:1.4;
-        }
-
-        .link-rate{
-            color:#1565ff;
-            font-weight:bold;
-            margin-left:20px;
-        }
-        .back {
-        display: block;
-        margin-bottom: 16px;
-        color: #333;
-        font-size: 18px;
-        }
-
-        .machine_rank_list{
-            font-size:16px;
-            line-height:1.8;
-            margin-bottom:15px;
-        }
-        .rank_top3{
-            color:#d00000;
-            font-weight:bold;
-        }
-
-        .total-card-link{
-            display:block;
-            text-decoration:none;
-            color:inherit;
-        }
-
-        .total-card{
-            background:white;
-            border-radius:12px;
-            padding:14px;
-            margin:12px 0;
-            box-shadow:0 2px 8px rgba(0,0,0,0.12);
-        }
-
-        .total-rank{
-            font-size:18px;
-            font-weight:bold;
-        }
-
-        .total-main{
-            font-size:18px;
-            font-weight:bold;
-            margin-top:4px;
-        }
-
-        .total-main span{
-            font-size:18px;
-        }
-
-        .total-score{
-            font-size:18px;
-            font-weight:bold;
-            color:#d60000;
-            margin-top:6px;
-        }
-
-        .total-sub{
-            font-size:12px;
-            margin-top:4px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 100%;
-        }
-        .rank {
-        font-size: 22px;
-        font-weight: bold;
-        }
-        .score {
-        color: #d00000;
-        font-weight: bold;
-        }
-        .prev-top3-box {
-            background: #fff8dc;
-            border-left: 5px solid orange;
             padding: 4px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .card {
-            width: 100%;
-            max-width: none;
-            box-sizing: border-box;
-            display: block;
-            clear: both;
-            float: none;
-        }
-
-        @media screen and (max-width: 600px) {
-            body {
-                padding: 4px;
-                overflow-x: hidden;
-            }
-
-            .card {
-                width: 100%;
-                max-width: 100%;
-                margin: 10px 0;
-                padding: 4px;
-                box-sizing: border-box;
-            }
-
-            .link-line {
-                white-space: normal;
-                word-break: keep-all;
-                font-size: 14px;
-                line-height: 1.35;
-            }
-        }
-
-        html, body {
-            width: 100%;
-            max-width: 100%;
             overflow-x: hidden;
         }
 
-        body > div,
-        .section {
-            display: block;
+        .card {
             width: 100%;
             max-width: 100%;
-            clear: both;
+            margin: 10px 0;
+            padding: 4px;
+            box-sizing: border-box;
         }
 
-        .card {
-            display: block !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 12px 0 !important;
-            float: none !important;
-            clear: both !important;
+        .link-line {
+            white-space: normal;
+            word-break: keep-all;
+            font-size: 14px;
+            line-height: 1.35;
         }
+    }
 
-        .card .card {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-        .section > .card {
-            margin-left: 0 !important;
-            width: 100% !important;
-        }
-        
-        .revival-box{
-            margin-top:8px;
-            margin-bottom:8px;
-        }
+    body > div,
+    .section {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        clear: both;
+    }
 
-        .revival-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-bottom:4px;
-        }
+    .card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px 0 !important;
+        float: none !important;
+        clear: both !important;
+    }
 
-        .revival-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .card .card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 
-        .trap-box{
-            margin-top:8px;
-            margin-bottom:8px;
-        }
+    .section > .card {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .revival-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
 
-        .trap-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-bottom:4px;
-        }
+    .revival-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
 
-        .trap-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .revival-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-        .revival-title,
-        .trap-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-top:10px;
-            margin-bottom:4px;
-        }
+    .trap-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
 
-        .revival-number,
-        .trap-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-            margin-bottom:10px;
-        }
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
 
-        .detect-text{
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-        </style>
-        
-        </head>
-        <body>
+    .revival-title,
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-top:10px;
+        margin-bottom:4px;
+    }
 
-        <a class="back" href="index_link.html">← メニューへ戻る</a>
+    .revival-number,
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+        margin-bottom:10px;
+    }
 
-        <h1>総合TOP</h1>
+    .detect-text{
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-        <div class="predict-date">
-        予想日：2026-06-28
-        </div>
+    .bottom-info{
+        font-size:14px;
+        line-height:1.25;
+    }
 
-        <h2>全機種総合TOP15</h2>
-            <a class="total-card-link" href="god_link.html#machine-1168">
-            <div class="total-card">
-            <div class="total-rank">🥇 1位</div>
-            <div class="total-main">1168番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：41.4pt</div>
-            <div class="total-sub">
-            standard_スコア:28.9
-            link_t/w_pt:12.5
+    .prev-label{
+        display:inline-block;
+        width:90px;
+        text-align:right;
+    }
+
+    .prev-value{
+        display:inline-block;
+        width:80px;
+    }
+
+    </style>
+    
+            </head>
+            <body>
+
+            <a class="back" href="index_link.html">← メニューへ戻る</a>
+
+            <h1>総合TOP</h1>
+
+            <div class="predict-date">
+            予想日：2026-07-12
             </div>
-            </div>
-            </a>
+
+            <h2>全機種総合TOP15</h2>
+    <a class="total-card-link" href="hokuto_link.html#machine-1299">
+    <div class="total-card">
+    <div class="total-rank">🥇 1位</div>
+    <div class="total-main">1299番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:25.9pt</div>
+    <div class="total-sub">
+    standard_スコア:22.8
+    link_t/w_pt:22.1
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="hokuto_link.html#machine-1291">
+    <div class="total-card">
+    <div class="total-rank">🥈 2位</div>
+    <div class="total-main">1291番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:25.9pt</div>
+    <div class="total-sub">
+    standard_スコア:22.8
+    link_t/w_pt:16.5
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="hokuto_link.html#machine-1282">
+    <div class="total-card">
+    <div class="total-rank">🥉 3位</div>
+    <div class="total-main">1282番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:24.4pt</div>
+    <div class="total-sub">
+    standard_スコア:20.8
+    link_t/w_pt:18.0
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="vvv_link.html#machine-1178">
+    <div class="total-card">
+    <div class="total-rank"> 4位</div>
+    <div class="total-main">1178番台 <span>(ヴァルヴレイヴ2)</span></div>
+    <div class="total-score">総合pt:22.8pt</div>
+    <div class="total-sub">
+    standard_スコア:21.7
+    link_t/w_pt:4.6
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="tokyo_link.html#machine-1222">
+    <div class="total-card">
+    <div class="total-rank"> 5位</div>
+    <div class="total-main">1222番台 <span>(東京喰種)</span></div>
+    <div class="total-score">総合pt:20.0pt</div>
+    <div class="total-sub">
+    standard_スコア:19.1
+    link_t/w_pt:21.8
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="#machine-1170">
+    <div class="total-card">
+    <div class="total-rank"> 6位</div>
+    <div class="total-main">1170番台 <span>(ミリオンゴッド)</span></div>
+    <div class="total-score">総合pt:19.6pt</div>
+    <div class="total-sub">
+    standard_スコア:15.3
+    link_t/w_pt:29.2
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="#machine-1165">
+    <div class="total-card">
+    <div class="total-rank"> 7位</div>
+    <div class="total-main">1165番台 <span>(ミリオンゴッド)</span></div>
+    <div class="total-score">総合pt:18.7pt</div>
+    <div class="total-sub">
+    standard_スコア:14.3
+    link_t/w_pt:23.6
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="hokuto_link.html#machine-1287">
+    <div class="total-card">
+    <div class="total-rank"> 8位</div>
+    <div class="total-main">1287番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:18.7pt</div>
+    <div class="total-sub">
+    standard_スコア:13.2
+    link_t/w_pt:12.2
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="vvv_link.html#machine-1182">
+    <div class="total-card">
+    <div class="total-rank"> 9位</div>
+    <div class="total-main">1182番台 <span>(ヴァルヴレイヴ2)</span></div>
+    <div class="total-score">総合pt:18.7pt</div>
+    <div class="total-sub">
+    standard_スコア:17.7
+    link_t/w_pt:4.0
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="#machine-1173">
+    <div class="total-card">
+    <div class="total-rank"> 10位</div>
+    <div class="total-main">1173番台 <span>(ミリオンゴッド)</span></div>
+    <div class="total-score">総合pt:17.6pt</div>
+    <div class="total-sub">
+    standard_スコア:12.2
+    link_t/w_pt:24.0
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="hokuto_link.html#machine-1295">
+    <div class="total-card">
+    <div class="total-rank"> 11位</div>
+    <div class="total-main">1295番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:17.4pt</div>
+    <div class="total-sub">
+    standard_スコア:12.5
+    link_t/w_pt:27.6
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="tokyo_link.html#machine-1217">
+    <div class="total-card">
+    <div class="total-rank"> 12位</div>
+    <div class="total-main">1217番台 <span>(東京喰種)</span></div>
+    <div class="total-score">総合pt:16.9pt</div>
+    <div class="total-sub">
+    standard_スコア:15.6
+    link_t/w_pt:11.6
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="#machine-1175">
+    <div class="total-card">
+    <div class="total-rank"> 13位</div>
+    <div class="total-main">1175番台 <span>(ミリオンゴッド)</span></div>
+    <div class="total-score">総合pt:16.7pt</div>
+    <div class="total-sub">
+    standard_スコア:15.2
+    link_t/w_pt:6.8
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="hokuto_link.html#machine-1296">
+    <div class="total-card">
+    <div class="total-rank"> 14位</div>
+    <div class="total-main">1296番台 <span>(北斗の拳)</span></div>
+    <div class="total-score">総合pt:16.1pt</div>
+    <div class="total-sub">
+    standard_スコア:14.4
+    link_t/w_pt:24.9
+    </div>
+    </div>
+    </a>
+    
+    <a class="total-card-link" href="#machine-1164">
+    <div class="total-card">
+    <div class="total-rank"> 15位</div>
+    <div class="total-main">1164番台 <span>(ミリオンゴッド)</span></div>
+    <div class="total-score">総合pt:14.7pt</div>
+    <div class="total-sub">
+    standard_スコア:13.0
+    link_t/w_pt:8.6
+    </div>
+    </div>
+    </a>
+    
+
+            </body>
+            </html>
             
-            <a class="total-card-link" href="god_link.html#machine-1175">
-            <div class="total-card">
-            <div class="total-rank">🥈 2位</div>
-            <div class="total-main">1175番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：40.1pt</div>
-            <div class="total-sub">
-            standard_スコア:31.0
-            link_t/w_pt:9.1
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1165">
-            <div class="total-card">
-            <div class="total-rank">🥉 3位</div>
-            <div class="total-main">1165番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：33.4pt</div>
-            <div class="total-sub">
-            standard_スコア:22.5
-            link_t/w_pt:10.9
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="okidoki_link.html#machine-1147">
-            <div class="total-card">
-            <div class="total-rank"> 4位</div>
-            <div class="total-main">1147番台 <span>(沖ドキ)</span></div>
-            <div class="total-score">総合pt：31.9pt</div>
-            <div class="total-sub">
-            standard_スコア:23.6
-            link_t/w_pt:8.3
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1171">
-            <div class="total-card">
-            <div class="total-rank"> 5位</div>
-            <div class="total-main">1171番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：30.4pt</div>
-            <div class="total-sub">
-            standard_スコア:23.4
-            link_t/w_pt:7.0
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1164">
-            <div class="total-card">
-            <div class="total-rank"> 6位</div>
-            <div class="total-main">1164番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：30.0pt</div>
-            <div class="total-sub">
-            standard_スコア:23.8
-            link_t/w_pt:6.2
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1167">
-            <div class="total-card">
-            <div class="total-rank"> 7位</div>
-            <div class="total-main">1167番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：29.1pt</div>
-            <div class="total-sub">
-            standard_スコア:20.2
-            link_t/w_pt:8.9
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="hokuto_link.html#machine-1295">
-            <div class="total-card">
-            <div class="total-rank"> 8位</div>
-            <div class="total-main">1295番台 <span>(北斗の拳)</span></div>
-            <div class="total-score">総合pt：29.1pt</div>
-            <div class="total-sub">
-            standard_スコア:18.5
-            link_t/w_pt:10.6
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="okidoki_link.html#machine-1157">
-            <div class="total-card">
-            <div class="total-rank"> 9位</div>
-            <div class="total-main">1157番台 <span>(沖ドキ)</span></div>
-            <div class="total-score">総合pt：28.6pt</div>
-            <div class="total-sub">
-            standard_スコア:19.7
-            link_t/w_pt:8.9
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1172">
-            <div class="total-card">
-            <div class="total-rank"> 10位</div>
-            <div class="total-main">1172番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：28.2pt</div>
-            <div class="total-sub">
-            standard_スコア:20.6
-            link_t/w_pt:7.6
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="vvv_link.html#machine-1180">
-            <div class="total-card">
-            <div class="total-rank"> 11位</div>
-            <div class="total-main">1180番台 <span>(ヴァルヴレイヴ2)</span></div>
-            <div class="total-score">総合pt：26.3pt</div>
-            <div class="total-sub">
-            standard_スコア:20.3
-            link_t/w_pt:6.0
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="tokyo_link.html#machine-1201">
-            <div class="total-card">
-            <div class="total-rank"> 12位</div>
-            <div class="total-main">1201番台 <span>(東京喰種)</span></div>
-            <div class="total-score">総合pt：26.2pt</div>
-            <div class="total-sub">
-            standard_スコア:16.9
-            link_t/w_pt:9.3
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="god_link.html#machine-1173">
-            <div class="total-card">
-            <div class="total-rank"> 13位</div>
-            <div class="total-main">1173番台 <span>(ミリオンゴッド)</span></div>
-            <div class="total-score">総合pt：25.7pt</div>
-            <div class="total-sub">
-            standard_スコア:18.1
-            link_t/w_pt:7.6
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="okidoki_link.html#machine-1154">
-            <div class="total-card">
-            <div class="total-rank"> 14位</div>
-            <div class="total-main">1154番台 <span>(沖ドキ)</span></div>
-            <div class="total-score">総合pt：25.6pt</div>
-            <div class="total-sub">
-            standard_スコア:18.2
-            link_t/w_pt:7.3
-            </div>
-            </div>
-            </a>
-            
-            <a class="total-card-link" href="tokyo_link.html#machine-1225">
-            <div class="total-card">
-            <div class="total-rank"> 15位</div>
-            <div class="total-main">1225番台 <span>(東京喰種)</span></div>
-            <div class="total-score">総合pt：25.4pt</div>
-            <div class="total-sub">
-            standard_スコア:17.6
-            link_t/w_pt:7.8
-            </div>
-            </div>
-            </a>
-            
-
-        </body>
-        </html>
-        

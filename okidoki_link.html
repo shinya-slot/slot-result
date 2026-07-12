@@ -1,622 +1,391 @@
 
-        <!DOCTYPE html>
-        <html lang="ja">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>沖ドキLINK</title>
-        
-        <style>
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖ドキLINK</title>
+    
+    <style>
+    body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+        padding: 12px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    h1 {
+    font-size: 24px;
+    }
+    h2 {
+    font-size: 24px;
+    }
+    .predict-date{
+        font-size:18px;
+        font-weight:bold;
+        margin-bottom:18px;
+        color:#444;
+    }
+    .menu-button {
+    display: block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px;
+    margin: 16px 0;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    }
+    .link-row{
+        margin-top:10px;
+        line-height:1.4;
+    }
+
+    .link-rate{
+        color:#1565ff;
+        font-weight:bold;
+        margin-left:20px;
+    }
+    .back {
+    display: block;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 18px;
+    }
+
+    .machine_rank_list{
+        font-size:16px;
+        line-height:1.8;
+        margin-bottom:15px;
+    }
+    .rank_top3{
+        color:#d00000;
+        font-weight:bold;
+    }
+
+    .rank-top{
+        color:#d60000;
+        font-weight:bold;
+    }
+
+    .total-card-link{
+        display:block;
+        text-decoration:none;
+        color:inherit;
+    }
+
+    .total-card{
+        background:white;
+        border-radius:12px;
+        padding:14px;
+        margin:12px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .total-rank{
+        font-size:18px;
+        font-weight:bold;
+    }
+
+    .total-main{
+        font-size:18px;
+        font-weight:bold;
+        margin-top:4px;
+    }
+
+    .total-main span{
+        font-size:18px;
+    }
+
+    .total-score{
+        font-size:18px;
+        font-weight:bold;
+        color:#d60000;
+        margin-top:6px;
+    }
+
+    .total-sub{
+        font-size:12px;
+        margin-top:4px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+    .rank {
+    font-size: 22px;
+    font-weight: bold;
+    }
+    .score {
+    color: #d00000;
+    font-weight: bold;
+    }
+    .prev-top3-box {
+        background: #fff8dc;
+        border-left: 5px solid orange;
+        padding: 4px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        display: block;
+        clear: both;
+        float: none;
+    }
+
+    @media screen and (max-width: 600px) {
         body {
-            font-family: sans-serif;
-            background: #f5f5f5;
-            padding: 12px;
-            margin: 0;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        h1 {
-        font-size: 24px;
-        }
-        h2 {
-        font-size: 24px;
-        }
-        .predict-date{
-            font-size:18px;
-            font-weight:bold;
-            margin-bottom:18px;
-            color:#444;
-        }
-        .menu-button {
-        display: block;
-        background: #333;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        padding: 18px;
-        margin: 16px 0;
-        border-radius: 12px;
-        font-size: 24px;
-        font-weight: bold;
-        }
-        .link-row{
-            margin-top:10px;
-            line-height:1.4;
-        }
-
-        .link-rate{
-            color:#1565ff;
-            font-weight:bold;
-            margin-left:20px;
-        }
-        .back {
-        display: block;
-        margin-bottom: 16px;
-        color: #333;
-        font-size: 18px;
-        }
-
-        .machine_rank_list{
-            font-size:16px;
-            line-height:1.8;
-            margin-bottom:15px;
-        }
-        .rank_top3{
-            color:#d00000;
-            font-weight:bold;
-        }
-
-        .total-card-link{
-            display:block;
-            text-decoration:none;
-            color:inherit;
-        }
-
-        .total-card{
-            background:white;
-            border-radius:12px;
-            padding:14px;
-            margin:12px 0;
-            box-shadow:0 2px 8px rgba(0,0,0,0.12);
-        }
-
-        .total-rank{
-            font-size:18px;
-            font-weight:bold;
-        }
-
-        .total-main{
-            font-size:18px;
-            font-weight:bold;
-            margin-top:4px;
-        }
-
-        .total-main span{
-            font-size:18px;
-        }
-
-        .total-score{
-            font-size:18px;
-            font-weight:bold;
-            color:#d60000;
-            margin-top:6px;
-        }
-
-        .total-sub{
-            font-size:12px;
-            margin-top:4px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 100%;
-        }
-        .rank {
-        font-size: 22px;
-        font-weight: bold;
-        }
-        .score {
-        color: #d00000;
-        font-weight: bold;
-        }
-        .prev-top3-box {
-            background: #fff8dc;
-            border-left: 5px solid orange;
             padding: 4px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .card {
-            width: 100%;
-            max-width: none;
-            box-sizing: border-box;
-            display: block;
-            clear: both;
-            float: none;
-        }
-
-        @media screen and (max-width: 600px) {
-            body {
-                padding: 4px;
-                overflow-x: hidden;
-            }
-
-            .card {
-                width: 100%;
-                max-width: 100%;
-                margin: 10px 0;
-                padding: 4px;
-                box-sizing: border-box;
-            }
-
-            .link-line {
-                white-space: normal;
-                word-break: keep-all;
-                font-size: 14px;
-                line-height: 1.35;
-            }
-        }
-
-        html, body {
-            width: 100%;
-            max-width: 100%;
             overflow-x: hidden;
         }
 
-        body > div,
-        .section {
-            display: block;
+        .card {
             width: 100%;
             max-width: 100%;
-            clear: both;
+            margin: 10px 0;
+            padding: 4px;
+            box-sizing: border-box;
         }
 
-        .card {
-            display: block !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 12px 0 !important;
-            float: none !important;
-            clear: both !important;
+        .link-line {
+            white-space: normal;
+            word-break: keep-all;
+            font-size: 14px;
+            line-height: 1.35;
         }
+    }
 
-        .card .card {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-        .section > .card {
-            margin-left: 0 !important;
-            width: 100% !important;
-        }
-        
-        .revival-box{
-            margin-top:8px;
-            margin-bottom:8px;
-        }
+    body > div,
+    .section {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        clear: both;
+    }
 
-        .revival-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-bottom:4px;
-        }
+    .card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px 0 !important;
+        float: none !important;
+        clear: both !important;
+    }
 
-        .revival-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .card .card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 
-        .trap-box{
-            margin-top:8px;
-            margin-bottom:8px;
-        }
+    .section > .card {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .revival-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
 
-        .trap-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-bottom:4px;
-        }
+    .revival-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
 
-        .trap-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .revival-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-        .revival-title,
-        .trap-title{
-            font-size:14px;
-            font-weight:bold;
-            margin-top:10px;
-            margin-bottom:4px;
-        }
+    .trap-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
 
-        .revival-number,
-        .trap-number{
-            font-size:14px;
-            color:#0066ff;
-            font-weight:bold;
-            margin-bottom:10px;
-        }
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
 
-        .detect-text{
-            color:#0066ff;
-            font-weight:bold;
-        }
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-        </style>
-        
-        </head>
-        <body>
+    .revival-title,
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-top:10px;
+        margin-bottom:4px;
+    }
 
-        <a class="back" href="index_link.html">← メニューへ戻る</a>
+    .revival-number,
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+        margin-bottom:10px;
+    }
 
-        
+    .detect-text{
+        color:#0066ff;
+        font-weight:bold;
+    }
 
-                                <div class="section" id="okidoki">
-                                <h2>【LINK】沖ドキ</h2>
-                                <p>予想日：2026-06-28</p>
-                                <div class='prev-top3-box'><div><b>前日TOP3</b></div><br>
-        <div>
-            <b>1位：1150番台</b><br>
-            &nbsp;&nbsp;設定：6&nbsp;&nbsp;
-            最大放出：9904&nbsp;&nbsp;
-            差枚：+8500&nbsp;&nbsp;
-            前日周期：17日
+    .bottom-info{
+        font-size:14px;
+        line-height:1.25;
+    }
+
+    .prev-label{
+        display:inline-block;
+        width:90px;
+        text-align:right;
+    }
+
+    .prev-value{
+        display:inline-block;
+        width:80px;
+    }
+
+    </style>
+    
+    </head>
+    <body>
+
+    <a class="back" href="index_link.html">← メニューへ戻る</a>
+
+    
+        <div class="section" id="okidoki">
+            <h2>【LINK】 沖ドキ</h2>
+            <p>予想日：2026-07-12</p>
+
+            <div class='prev-top3-box'><div><b>前日TOP3</b></div><br>
+        <div class="rank-mini-block">
+        <b>1位：1147番台</b><br>
+        &nbsp;&nbsp;設定：4&nbsp;&nbsp;
+        最大放出：6639&nbsp;&nbsp;
+        差枚：+5700&nbsp;&nbsp;
+        前日周期：14日
         </div>
-        <br>
         
-        <div>
-            <b>2位：1146番台</b><br>
-            &nbsp;&nbsp;設定：3&nbsp;&nbsp;
-            最大放出：4514&nbsp;&nbsp;
-            差枚：+3100&nbsp;&nbsp;
-            前日周期：8日
+        <div class="rank-mini-block">
+        <b>2位：1148番台</b><br>
+        &nbsp;&nbsp;設定：3&nbsp;&nbsp;
+        最大放出：5539&nbsp;&nbsp;
+        差枚：+3800&nbsp;&nbsp;
+        前日周期：8日
         </div>
-        <br>
+        
+        <div class="rank-mini-block">
+        <b>3位：1150番台</b><br>
+        &nbsp;&nbsp;設定：3&nbsp;&nbsp;
+        最大放出：3944&nbsp;&nbsp;
+        差枚：+2200&nbsp;&nbsp;
+        前日周期：13日
         </div>
-                                <div class='revival-box'><div class='revival-title'>復活検出</div><div class='revival-number'>1147、1152、1153、1157</div></div>
-                                <div class='trap-box'><div class='trap-title'>罠台検出</div><div class='trap-number'>1150</div></div>
-                                
-                            <div class="top3-box">
-                            ━━━━━━━━━━<br>
-                            🥇本命　1147（31.9pt）<br>
-                            🥈対抗　1157（28.6pt）<br>
-                            🥉穴　　1154（25.6pt）<br>
-                            ━━━━━━━━━━
-                            </div>
-                            
-                                <div class='machine_rank_list'><b>台番順位一覧</b><br>1144:17位　1145:15位　1146:9位　1147:<span class='rank_top3'>1位</span>　1148:<span class='rank_top3'>4位</span>　1149:<span class='rank_top3'>5位</span>　1150:10位　<br>1151:16位　1152:8位　1153:11位　1154:<span class='rank_top3'>3位</span>　1155:20位　1156:18位　1157:<span class='rank_top3'>2位</span>　<br>1158:6位　1159:12位　1160:19位　1161:13位　1162:7位　1163:14位　</div><br>
-                                
-                        <div class="card" id="machine-1147">
-                            <div class="rank">1位：1147番台 [島1]</div>
+        <hr style='margin:18px 0;'><div><b>前日設定4以上</b></div><br>・1147番台（設定4）<br><br>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：1220<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：2日
-                            </div>
-                            <br>
+            <div class="summary-block">
+                復活検出<br><span style='color:#06f'>なし</span><br>
+                罠台検出<br><span style='color:#06f'>なし</span>
+            </div>
 
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">31.95</span></b><br>
-                            <br>
+            <div class="summary-block">
+                <div class='top3-box'>🥇 本命 1150 (11.0pt)<br>🥈 対抗 1152 (9.0pt)<br>🥉 穴 1144 (7.9pt)</div>
+            </div>
 
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">23.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 10.22</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 8.07<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 2.15<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
+            <hr class="section-sep">
 
-                            <br>
+            <div class="summary-block">
+                <b>台番順位一覧</b><br>
+                <div class='rank-list'><span class='rank-item'>1144:<span class='rank-top'>3位</span></span>　<span class='rank-item'>1145:10位</span>　<span class='rank-item'>1146:8位</span>　<span class='rank-item'>1147:<span class='rank-top'>4位</span></span>　<span class='rank-item'>1148:9位</span>　<span class='rank-item'>1149:<span class='rank-top'>5位</span></span>　<span class='rank-item'>1150:<span class='rank-top'>1位</span></span>　<span class='rank-item'>1151:12位</span>　<span class='rank-item'>1152:<span class='rank-top'>2位</span></span>　<span class='rank-item'>1153:11位</span>　<span class='rank-item'>1154:6位</span>　<span class='rank-item'>1155:7位</span></div>
+            </div>
+        </div>
 
-                            &nbsp;&nbsp;<b>adjust_pt : 18.16</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.49<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 7.67<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 1.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
+        <div style="height:12px;"></div>
 
-                            <br>
+        
+                    <div class="card" id="machine-1150">
+                        <div class="rank">1位：1150番台 [島1]</div>
 
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">8.35</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1147　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1147　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1147　連動率：1/3 (33%)　pt：5.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1147　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1147　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1147　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1147　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1147　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1147　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：20.0% (1/5)</div>
-                            <div>復活率：50.0% (2/4)</div>
-                            <div>復活検出：
-                            <span class="detect-text">検出あり</span>
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：5回 (5/30)</div>
-                            <div>直近設定：1→5→1→5→4→3→1</div>
-                            <div>周期：3日</div>
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">3</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">3944</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+2200</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">13日</span>
                         </div>
-                        
-                        <div class="card" id="machine-1157">
-                            <div class="rank">2位：1157番台 [島2]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：2.0&nbsp;&nbsp;最大放出 ：3355<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：3日
-                            </div>
-                            <br>
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">11.00</span></b><br><br>
 
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">28.60</span></b><br>
-                            <br>
+                                <div>
 
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">19.70</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 13.01</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 10.27<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 2.74<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
+                                <b>standard_pt：<span style="color:#00bcd4;">11.00</span></b><br><br>
 
-                            <br>
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
 
-                            &nbsp;&nbsp;<b>adjust_pt : 10.85</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.58<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -0.73<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 2.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：8.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：0.00<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：3.00<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
 
-                            <br>
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
 
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">8.90</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1157　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1157　連動率：2/5 (40%)　pt：2.10</div><div class='link-line'>6 1150（1日前）→1157　連動率：1/3 (33%)　pt：5.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1157　連動率：2/5 (40%)　pt：1.80</div><div class='link-line'>0 None（2日前）→1157　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1157　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1157　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1157　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1157　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：28.6% (2/7)</div>
-                            <div>復活率：60.0% (3/5)</div>
-                            <div>復活検出：
-                            <span class="detect-text">検出あり</span>
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：7回 (7/30)</div>
-                            <div>直近設定：4→1→4→4→1→1→2</div>
-                            <div>周期：4日</div>
+                            基準台:1147(基準)
                         </div>
-                        
-                        <div class="card" id="machine-1154">
-                            <div class="rank">3位：1154番台 [島2]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：-1.0&nbsp;&nbsp;最大放出 ：603<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：2日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">25.55</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">18.20</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 7.13</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 7.13<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 13.32</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.85<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 3.47<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">7.35</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1154　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1154　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1154　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1154　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1154　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1154　連動率：1/2 (50%)　pt：2.50</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1154　連動率：1/3 (33%)　pt：1.50</div><div class='link-line'>0 None（2日前）→1154　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1154　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：25.0% (1/4)</div>
-                            <div>復活率：0.0% (0/3)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：4回 (4/30)</div>
-                            <div>直近設定：1→2→1→5→5→1→-1</div>
-                            <div>周期：3日</div>
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1150 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1150 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1150 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1150 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1150 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1150 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1150 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1150 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1150 連動率：0/0（0%） pt：0.00<br>
                         </div>
-                        
-                        <div class="card" id="machine-1148">
-                            <div class="rank">4位：1148番台 [島1]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：877<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：5日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">24.90</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">15.90</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 9.88</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 7.80<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 2.08<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 9.96</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 5.12<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -0.17<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">9.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1148　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1148　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1148　連動率：1/3 (33%)　pt：5.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1148　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1148　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1148　連動率：1/2 (50%)　pt：2.50</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1148　連動率：1/3 (33%)　pt：1.50</div><div class='link-line'>0 None（2日前）→1148　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1148　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/5)</div>
-                            <div>復活率：40.0% (2/5)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：5回 (5/30)</div>
-                            <div>直近設定：1→6→1→-2→1→1→1</div>
-                            <div>周期：6日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1149">
-                            <div class="rank">5位：1149番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：714<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-1800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：15日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">18.55</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">11.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 4.02</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.53<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 1.21<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -1.72<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 7.99</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.49<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -1.50<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">6.95</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1149　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1149　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1149　連動率：1/3 (33%)　pt：5.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1149　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1149　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1149　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1149　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1149　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1149　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/2)</div>
-                            <div>復活率：50.0% (1/2)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：2回 (2/30)</div>
-                            <div>直近設定：1→1→1→1→2→1→1</div>
-                            <div>周期：17日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1158">
-                            <div class="rank">6位：1158番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：1301<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：4日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">17.15</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">15.20</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 4.32</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.32<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 8.23</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.13<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -0.90<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">1.95</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1158　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1158　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1158　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1158　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1158　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1158　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1158　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1158　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1158　連動率：0/0 (0%)　pt：0.00</div></div>
-
+                        <div class="bottom-info">
                             <div>据え置き率：0.0% (0/2)</div>
                             <div>復活率：0.0% (0/2)</div>
+
                             <div>復活検出：
                             検出なし
                             </div>
@@ -624,549 +393,133 @@
                             <div>罠台検出：
                             検出なし
                             </div>
+
+                            <br>
+
                             <div>高設定回数：2回 (2/30)</div>
-                            <div>直近設定：1→1→5→2→1→1→1</div>
-                            <div>周期：5日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1162">
-                            <div class="rank">7位：1162番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：572<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：2日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">16.75</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">13.40</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 5.30</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 5.30<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 10.62</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.42<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 2.20<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">3.35</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1162　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1162　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1162　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1162　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1162　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1162　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1162　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1162　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1162　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/3)</div>
-                            <div>復活率：0.0% (0/3)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：3回 (3/30)</div>
-                            <div>直近設定：1→1→1→1→4→1→1</div>
-                            <div>周期：3日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1152">
-                            <div class="rank">8位：1152番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：2.0&nbsp;&nbsp;最大放出 ：2256<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：7日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">13.30</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">11.90</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 2.55</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.45<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 11.86</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.60<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 1.27<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 2.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">1.40</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1152　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1152　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1152　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1152　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1152　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1152　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1152　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1152　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1152　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
-                            <div>復活検出：
-                            <span class="detect-text">検出あり</span>
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：1→1→1→3→1→1→2</div>
-                            <div>周期：8日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1146">
-                            <div class="rank">9位：1146番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：3.0&nbsp;&nbsp;最大放出 ：4514<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+3100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：8日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">12.50</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">12.50</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 3.12</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.67<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.55<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 9.66</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.06<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 1.60<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1146　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1146　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1146　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1146　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1146　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1146　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1146　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1146　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1146　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/2)</div>
-                            <div>復活率：0.0% (0/2)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：2回 (2/30)</div>
-                            <div>直近設定：0→2→1→1→1→1→3</div>
-                            <div>周期：10日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1150">
-                            <div class="rank">10位：1150番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：6.0&nbsp;&nbsp;最大放出 ：9904<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+8500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：17日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">10.70</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">16.70</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 17.73</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 17.73<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 15.93</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.13<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 6.80<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1150　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1150　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1150　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1150　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1150　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1150　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1150　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1150　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1150　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/3)</div>
-                            <div>復活率：0.0% (0/3)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            <span class="detect-text">検出あり</span>
-                            </div>
-                            <div>高設定回数：3回 (3/30)</div>
-                            <div>直近設定：1→1→1→1→2→1→6</div>
-                            <div>周期：1日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1153">
-                            <div class="rank">11位：1153番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：2.0&nbsp;&nbsp;最大放出 ：2684<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：36日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">9.60</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">9.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 1.27</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 1.27<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 10.56</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.70<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 0.87<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 2.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1153　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1153　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1153　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1153　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1153　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1153　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1153　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1153　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1153　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0% (0/0)</div>
-                            <div>復活率：0% (0/0)</div>
-                            <div>復活検出：
-                            <span class="detect-text">検出あり</span>
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：0回 (0/30)</div>
-                            <div>直近設定：1→2→1→1→1→1→2</div>
-                            <div>周期：-日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1159">
-                            <div class="rank">12位：1159番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：741<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：7日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">9.00</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">7.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 3.29</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.87<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.58<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 5.99</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.33<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -2.33<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">1.40</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1159　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1159　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1159　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1159　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1159　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1159　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1159　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1159　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1159　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/2)</div>
-                            <div>復活率：0.0% (0/2)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：2回 (2/30)</div>
-                            <div>直近設定：1→1→-2→1→1→1→1</div>
-                            <div>周期：8日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1161">
-                            <div class="rank">13位：1161番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：612<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：19日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">9.00</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">9.00</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 1.80</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.27<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -1.47<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 8.89</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 4.49<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -0.60<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1161　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1161　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1161　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1161　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1161　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1161　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1161　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1161　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1161　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：1→1→-3→3→1→1→1</div>
-                            <div>周期：21日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1163">
-                            <div class="rank">14位：1163番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：590<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：12日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">8.40</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">4.50</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 2.21</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.60<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.39<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 8.92</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.42<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : 0.50<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">3.90</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1163　連動率：1/4 (25%)　pt：1.40</div><div class='link-line'>3 1147（2日前）→1163　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1163　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1163　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1163　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1163　連動率：1/2 (50%)　pt：2.50</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1163　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1163　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1163　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：1→1→-2→-2→1→1→1</div>
-                            <div>周期：13日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1145">
-                            <div class="rank">15位：1145番台 [島1]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：724<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：+400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：13日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">7.90</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">7.90</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 2.66</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.80<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -1.14<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 7.86</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.60<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -0.73<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1145　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1145　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1145　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1145　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1145　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1145　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1145　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1145　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1145　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0.0% (0/2)</div>
-                            <div>復活率：0.0% (0/2)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：2回 (2/30)</div>
-                            <div>直近設定：0→1→1→-2→1→1→1</div>
+                            <div>直近設定：1→1→1→1→3→1→3</div>
                             <div>周期：15日</div>
+                            </div>
                         </div>
-                        
-                        <div class="card" id="machine-1151">
-                            <div class="rank">16位：1151番台 [島1]</div>
+                    </div>
+                    
+                    <div class="card" id="machine-1152">
+                        <div class="rank">2位：1152番台 [島1]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：783<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：18日
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">2</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">4160</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+800</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">6日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">9.00</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">9.00</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：6.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：0.50<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1152 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1152 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1152 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1152 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1152 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1152 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1152 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1152 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1152 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            <span class="detect-text">検出あり</span>
                             </div>
-                            <br>
 
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">7.55</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">5.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 2.19</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.13<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.94<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 5.86</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.33<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -2.47<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">1.95</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
+                            <div>罠台検出：
+                            検出なし
                             </div>
 
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1151　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1151　連動率：1/5 (20%)　pt：1.05</div><div class='link-line'>6 1150（1日前）→1151　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1151　連動率：1/5 (20%)　pt：0.90</div><div class='link-line'>0 None（2日前）→1151　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1151　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1151　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1151　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1151　連動率：0/0 (0%)　pt：0.00</div></div>
+                            <br>
 
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：6→3→1→2→1→1→2</div>
+                            <div>周期：7日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1144">
+                        <div class="rank">3位：1144番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">583</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-800</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">1日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">7.89</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">7.89</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：6.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：0.00<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：1.89<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1144 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1144 連動率：0/0（0%） pt：0.00<br>4 : 1147（1日前）→1144 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1144 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1144 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1144 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1144 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1144 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1144 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
                             <div>復活検出：
                             検出なし
                             </div>
@@ -1174,54 +527,200 @@
                             <div>罠台検出：
                             検出なし
                             </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：2→1→1→1→-3→1→1</div>
-                            <div>周期：19日</div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→1→-1→1→5→1</div>
+                            <div>周期：2日</div>
+                            </div>
                         </div>
-                        
-                        <div class="card" id="machine-1144">
-                            <div class="rank">17位：1144番台 [島1]</div>
+                    </div>
+                    
+                    <div class="card" id="machine-1147">
+                        <div class="rank">4位：1147番台 [島1]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：-2.0&nbsp;&nbsp;最大放出 ：1053<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-2500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：11日
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">4</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">6639</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+5700</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">14日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">7.69</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">7.69</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：5.00<br>
+                                        ├ prev_high：2.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：1.33<br>
+                                        ├ weak：0.00<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：1.50<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：-2.14<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1147 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1147 連動率：0/2（0%） pt：0.00<br>- : None（1日前）→1147 連動率：0/0（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1147 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1147 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1147 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1147 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1147 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1147 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
                             </div>
-                            <br>
 
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">6.10</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">6.10</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 2.15</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.53<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.38<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 5.77</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.97<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -2.20<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1146(基準)
+                            <div>罠台検出：
+                            <span class="detect-text">検出あり</span>
                             </div>
 
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1144　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1144　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1144　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1144　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1144　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1144　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1144　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1144　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1144　連動率：0/0 (0%)　pt：0.00</div></div>
+                            <br>
 
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：3→1→1→-3→1→1→4</div>
+                            <div>周期：1日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1149">
+                        <div class="rank">5位：1149番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">1641</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+1400</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">27日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">7.00</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">7.00</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：5.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：0.00<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：2.00<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1149 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1149 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1149 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1149 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1149 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1149 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1149 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1149 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1149 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            <span class="detect-text">検出あり</span>
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→1→1→1→3→1</div>
+                            <div>周期：31日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1154">
+                        <div class="rank">6位：1154番台 [島2]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">788</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-300</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">14日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">6.49</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">5.49</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：1.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：1.43<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：0.56<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">1.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1154 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1154 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1154 連動率：1/4（25%） pt：1.00<br><br><b>top2 連動</b><br>- : None（3日前）→1154 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1154 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1154 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1154 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1154 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1154 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
                             <div>復活検出：
                             検出なし
                             </div>
@@ -1229,54 +728,66 @@
                             <div>罠台検出：
                             検出なし
                             </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：-2→1→1→1→1→1→-2</div>
-                            <div>周期：12日</div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：3→1→1→1→-2→2→1</div>
+                            <div>周期：17日</div>
+                            </div>
                         </div>
-                        
-                        <div class="card" id="machine-1156">
-                            <div class="rank">18位：1156番台 [島2]</div>
+                    </div>
+                    
+                    <div class="card" id="machine-1155">
+                        <div class="rank">7位：1155番台 [島2]</div>
 
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：698<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：23日
-                            </div>
-                            <br>
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">854</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-600</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">47日</span>
+                        </div>
 
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">5.10</span></b><br>
-                            <br>
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">5.67</span></b><br><br>
 
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">5.10</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 1.14</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.07<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.93<br>
+                                <div>
 
-                            <br>
+                                <b>standard_pt：<span style="color:#00bcd4;">5.67</span></b><br><br>
 
-                            &nbsp;&nbsp;<b>adjust_pt : 6.15</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 2.25<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -1.10<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
 
-                            <br>
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：4.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：-0.83<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
 
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
 
-                            <br>
+                            基準台:1147(基準)
+                        </div>
 
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1155 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1155 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1155 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1155 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1155 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1155 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1155 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1155 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1155 連動率：0/0（0%） pt：0.00<br>
+                        </div>
 
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1156　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1156　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1156　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1156　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1156　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1156　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1156　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1156　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1156　連動率：0/0 (0%)　pt：0.00</div></div>
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
 
-                            <div>据え置き率：0.0% (0/1)</div>
-                            <div>復活率：0.0% (0/1)</div>
                             <div>復活検出：
                             検出なし
                             </div>
@@ -1284,124 +795,353 @@
                             <div>罠台検出：
                             検出なし
                             </div>
-                            <div>高設定回数：1回 (1/30)</div>
-                            <div>直近設定：0→1→-3→1→1→1→1</div>
-                            <div>周期：25日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1160">
-                            <div class="rank">19位：1160番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：2540<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：27日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">3.60</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">3.60</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 0.70</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 1.40<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : -0.70<br>
 
                             <br>
 
-                            &nbsp;&nbsp;<b>adjust_pt : 5.99</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 3.06<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -2.07<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1160　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1160　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1160　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1160　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1160　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1160　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1160　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1160　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1160　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0% (0/0)</div>
-                            <div>復活率：0% (0/0)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：0回 (0/30)</div>
-                            <div>直近設定：2→-2→1→-2→1→1→1</div>
-                            <div>周期：30日</div>
-                        </div>
-                        
-                        <div class="card" id="machine-1155">
-                            <div class="rank">20位：1155番台 [島2]</div>
-
-                            <div class="prev-info">
-                            &nbsp;&nbsp;&nbsp;&nbsp;前日設定 ：1.0&nbsp;&nbsp;最大放出 ：797<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;差枚　　 ：-900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日周期 ：33日
-                            </div>
-                            <br>
-
-                            <div>
-                            &nbsp;&nbsp;<b>総合pt:<span class="score">3.10</span></b><br>
-                            <br>
-
-                            &nbsp;&nbsp;<b>standard_pt : <span style="color:#00bcd4;">3.10</span></b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>raw内訳 : 0.53</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 0.53<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ two : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ link : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ cycle : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>adjust_pt : 2.95</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ base : 1.35<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ weak : 5.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ diff : -3.40<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;├ rev : 0.00<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;└ trap : 0.00<br>
-
-                            <br>
-
-                            &nbsp;&nbsp;<b>link_t/w_pt :
-                            <span style="color:#00bcd4;">0.00</span></b><br>
-
-                            <br>
-
-                            &nbsp;&nbsp;基準台:1150(基準)
-                            </div>
-
-                            <div class='machine_rank_list'><b>top1 連動</b><br><div class='link-line'>5 1154（3日前）→1155　連動率：0/4 (0%)　pt：0.00</div><div class='link-line'>3 1147（2日前）→1155　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>6 1150（1日前）→1155　連動率：0/3 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top2 連動</b><br><div class='link-line'>4 1147（3日前）→1155　連動率：0/5 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1155　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>3 1146（1日前）→1155　連動率：0/2 (0%)　pt：0.00</div></div><div class='machine_rank_list'><b>top3 連動</b><br><div class='link-line'>4 1162（3日前）→1155　連動率：0/3 (0%)　pt：0.00</div><div class='link-line'>0 None（2日前）→1155　連動率：0/0 (0%)　pt：0.00</div><div class='link-line'>0 None（1日前）→1155　連動率：0/0 (0%)　pt：0.00</div></div>
-
-                            <div>据え置き率：0% (0/0)</div>
-                            <div>復活率：0% (0/0)</div>
-                            <div>復活検出：
-                            検出なし
-                            </div>
-
-                            <div>罠台検出：
-                            検出なし
-                            </div>
-                            <div>高設定回数：0回 (0/30)</div>
-                            <div>直近設定：0→2→1→-2→1→-1→1</div>
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→1→1→1→1→1</div>
                             <div>周期：-日</div>
+                            </div>
                         </div>
-                        
-                                </div> 
-                                
+                    </div>
+                    
+                    <div class="card" id="machine-1146">
+                        <div class="rank">8位：1146番台 [島1]</div>
 
-        </body>
-        </html>
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">2</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">2735</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+400</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">20日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">5.25</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">4.08</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：1.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：0.58<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">1.17</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1146 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1146 連動率：1/2（50%） pt：1.17<br>4 : 1147（1日前）→1146 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1146 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1146 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1146 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1146 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1146 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1146 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→-3→1→1→-2→1→2</div>
+                            <div>周期：24日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1148">
+                        <div class="rank">9位：1148番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">3</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">5539</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">+3800</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">8日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">4.83</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">4.83</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：3.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：0.00<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：1.83<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1148 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1148 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1148 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1148 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1148 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1148 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1148 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1148 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1148 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→-2→1→-1→1→3</div>
+                            <div>周期：11日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1145">
+                        <div class="rank">10位：1145番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">914</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-900</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">26日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">4.22</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">4.22</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：1.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：0.72<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1145 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1145 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1145 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1145 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1145 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1145 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1145 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1145 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1145 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→1→-2→1→1→1</div>
+                            <div>周期：29日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1153">
+                        <div class="rank">11位：1153番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">774</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-300</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">48日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">1.25</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">1.25</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：0.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：-1.25<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1153 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1153 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1153 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1153 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1153 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1153 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1153 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1153 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1153 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：1→1→2→1→-3→1→1</div>
+                            <div>周期：-日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="machine-1151">
+                        <div class="rank">12位：1151番台 [島1]</div>
+
+                        <div class="prev-info">
+                            <span class="prev-label">前日設定：</span><span class="prev-value">-2</span>
+                            <span class="prev-label">最大放出：</span><span class="prev-value">2482</span><br>
+                            <span class="prev-label">差枚：</span><span class="prev-value">-5000</span>
+                            <span class="prev-label">前日周期：</span><span class="prev-value">7日</span>
+                        </div>
+
+                        <div class="score-block">
+                            <b>総合pt:<span class="score">-1.94</span></b><br><br>
+
+                                <div>
+
+                                <b>standard_pt：<span style="color:#00bcd4;">-1.94</span></b><br><br>
+
+                                    <div style="margin-left:24px;">
+                                        └ base : 5ave × 5<br>
+
+                                    <div style="margin-left:24px;">
+                                        ├ raw_base：-3.00<br>
+                                        ├ prev_high：0.00<br>
+                                        ├ one：0.00<br>
+                                        ├ two：0.00<br>
+                                        ├ cycle：0.00<br>
+                                        ├ stay：0.00<br>
+                                        ├ weak：2.50<br>
+                                        ├ week：0.00<br>
+                                        ├ diff：-1.44<br>
+                                        ├ rev：0.00<br>
+                                        └ trap：0.00<br>
+                                    </div>
+                                </div>
+                                <br>
+
+                            <b>link_t/w_pt：
+                            <span style="color:#00bcd4;">0.00</span></b><br><br>
+
+                            基準台:1147(基準)
+                        </div>
+
+                        <div class="link-info">
+                            <b>top1 連動</b><br>- : None（3日前）→1151 連動率：0/0（0%） pt：0.00<br>5 : 1144（2日前）→1151 連動率：0/2（0%） pt：0.00<br>4 : 1147（1日前）→1151 連動率：0/4（0%） pt：0.00<br><br><b>top2 連動</b><br>- : None（3日前）→1151 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1151 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1151 連動率：0/0（0%） pt：0.00<br><br><b>top3 連動</b><br>- : None（3日前）→1151 連動率：0/0（0%） pt：0.00<br>- : None（2日前）→1151 連動率：0/0（0%） pt：0.00<br>- : None（1日前）→1151 連動率：0/0（0%） pt：0.00<br>
+                        </div>
+
+                        <div class="bottom-info">
+                            <div>据え置き率：0.0% (0/2)</div>
+                            <div>復活率：0.0% (0/2)</div>
+
+                            <div>復活検出：
+                            検出なし
+                            </div>
+
+                            <div>罠台検出：
+                            検出なし
+                            </div>
+
+                            <br>
+
+                            <div>高設定回数：2回 (2/30)</div>
+                            <div>直近設定：2→1→1→1→-2→1→-2</div>
+                            <div>周期：9日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
         
+
+    </body>
+    </html>
+    
