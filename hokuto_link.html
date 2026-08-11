@@ -141,6 +141,21 @@
         font-size: 16px;
     }
 
+    .prev-top3-info {
+        display: grid;
+        grid-template-columns: 130px 170px 130px 150px;
+        column-gap: 10px;
+        margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .prev-top3-info {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12px;
+            row-gap: 2px;
+        }
+    }
+
     .card {
         width: 100%;
         max-width: none;
@@ -292,17 +307,20 @@
 
             <div class='prev-top3-box'><div><b>前日TOP3</b></div><br>
         <div class="rank-mini-block">
-        <b>1位：1292番台</b><br>
-        &nbsp;&nbsp;設定：4&nbsp;&nbsp;
-        最大放出：6268&nbsp;&nbsp;
-        差枚：+4200&nbsp;&nbsp;
-        前日周期：2日
+            <div><b>1位：1292番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：4</span>
+                <span>最大放出：6268</span>
+                <span>差枚：+4200</span>
+                <span>前日周期：2日</span>
+            </div>
         </div>
         <hr style='margin:18px 0;'><div><b>前日設定4以上</b></div><br>・1292番台（設定4）<br><br>
 
             <div class="summary-block">
-                復活検出<br><span style='color:#06f'>なし</span><br>
-                罠台検出<br><span style='color:#06f'>なし</span>
+                <br>
+                
             </div>
 
             <div class="summary-block">

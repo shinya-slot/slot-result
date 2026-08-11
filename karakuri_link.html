@@ -141,6 +141,21 @@
         font-size: 16px;
     }
 
+    .prev-top3-info {
+        display: grid;
+        grid-template-columns: 130px 170px 130px 150px;
+        column-gap: 10px;
+        margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .prev-top3-info {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12px;
+            row-gap: 2px;
+        }
+    }
+
     .card {
         width: 100%;
         max-width: none;
@@ -293,8 +308,8 @@
             <div class='prev-top3-box'><div><b>前日TOP3</b></div><br><hr style='margin:18px 0;'><div><b>前日設定4以上</b></div><br><br>
 
             <div class="summary-block">
-                復活検出<br><span style='color:#06f'>なし</span><br>
-                罠台検出<br><span style='color:#06f'>なし</span>
+                <br>
+                
             </div>
 
             <div class="summary-block">

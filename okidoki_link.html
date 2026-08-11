@@ -141,6 +141,21 @@
         font-size: 16px;
     }
 
+    .prev-top3-info {
+        display: grid;
+        grid-template-columns: 130px 170px 130px 150px;
+        column-gap: 10px;
+        margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .prev-top3-info {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12px;
+            row-gap: 2px;
+        }
+    }
+
     .card {
         width: 100%;
         max-width: none;
@@ -292,33 +307,42 @@
 
             <div class='prev-top3-box'><div><b>前日TOP3</b></div><br>
         <div class="rank-mini-block">
-        <b>1位：1149番台</b><br>
-        &nbsp;&nbsp;設定：6&nbsp;&nbsp;
-        最大放出：15213&nbsp;&nbsp;
-        差枚：+14000&nbsp;&nbsp;
-        前日周期：1日
+            <div><b>1位：1149番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：6</span>
+                <span>最大放出：15213</span>
+                <span>差枚：+14000</span>
+                <span>前日周期：1日</span>
+            </div>
         </div>
         
         <div class="rank-mini-block">
-        <b>2位：1145番台</b><br>
-        &nbsp;&nbsp;設定：5&nbsp;&nbsp;
-        最大放出：7335&nbsp;&nbsp;
-        差枚：+6100&nbsp;&nbsp;
-        前日周期：16日
+            <div><b>2位：1145番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：5</span>
+                <span>最大放出：7335</span>
+                <span>差枚：+6100</span>
+                <span>前日周期：16日</span>
+            </div>
         </div>
         
         <div class="rank-mini-block">
-        <b>3位：1144番台</b><br>
-        &nbsp;&nbsp;設定：4&nbsp;&nbsp;
-        最大放出：6756&nbsp;&nbsp;
-        差枚：+5000&nbsp;&nbsp;
-        前日周期：4日
+            <div><b>3位：1144番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：4</span>
+                <span>最大放出：6756</span>
+                <span>差枚：+5000</span>
+                <span>前日周期：4日</span>
+            </div>
         </div>
         <hr style='margin:18px 0;'><div><b>前日設定4以上</b></div><br>・1144番台（設定4）<br>・1145番台（設定5）<br>・1149番台（設定6）<br><br>
 
             <div class="summary-block">
-                復活検出<br><span style='color:#06f'>なし</span><br>
-                罠台検出<br><span style='color:#06f'>なし</span>
+                <br>
+                
             </div>
 
             <div class="summary-block">
