@@ -1,0 +1,1073 @@
+
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>獣王LINK</title>
+    
+    <style>
+    body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+        padding: 12px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    h1 {
+    font-size: 24px;
+    }
+    h2 {
+    font-size: 24px;
+    }
+    .predict-date{
+        font-size:18px;
+        font-weight:bold;
+        margin-bottom:18px;
+        color:#444;
+    }
+    .menu-button {
+    display: block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px;
+    margin: 16px 0;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    }
+    .link-row{
+        margin-top:10px;
+        line-height:1.4;
+    }
+
+    .link-rate{
+        color:#1565ff;
+        font-weight:bold;
+        margin-left:20px;
+    }
+    .back {
+    display: block;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 18px;
+    }
+
+    .machine_rank_list{
+        font-size:12px;
+        line-height:1.8;
+        margin-bottom:15px;
+    }
+    .rank_top3{
+        color:#d00000;
+        font-weight:bold;
+    }
+
+    .rank-top{
+        color:#d60000;
+        font-weight:bold;
+    }
+
+    .total-card-link{
+        display:block;
+        text-decoration:none;
+        color:inherit;
+    }
+
+    .total-card{
+        background:white;
+        border-radius:12px;
+        padding:14px;
+        margin:12px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .total-rank{
+        font-size:18px;
+        font-weight:bold;
+    }
+
+    .total-main{
+        font-size:18px;
+        font-weight:bold;
+        margin-top:4px;
+    }
+
+    .total-main span{
+        font-size:18px;
+    }
+
+    .total-score{
+        font-size:18px;
+        font-weight:bold;
+        color:#d60000;
+        margin-top:6px;
+    }
+
+    .total-sub{
+        font-size:12px;
+        margin-top:4px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+    .rank {
+    font-size: 22px;
+    font-weight: bold;
+    }
+    .score {
+    color: #d00000;
+    font-weight: bold;
+    }
+    .prev-top3-box {
+        background: #fff8dc;
+        border-left: 5px solid orange;
+        padding: 4px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .prev-top3-info {
+        display: grid;
+        grid-template-columns: 130px 170px 130px 150px;
+        column-gap: 10px;
+        margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .prev-top3-info {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12px;
+            row-gap: 2px;
+        }
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        display: block;
+        clear: both;
+        float: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        body {
+            padding: 4px;
+            overflow-x: hidden;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 100%;
+            margin: 10px 0;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        .link-line {
+            white-space: normal;
+            word-break: keep-all;
+            font-size: 14px;
+            line-height: 1.35;
+        }
+    }
+
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body > div,
+    .section {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        clear: both;
+    }
+
+    .card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px 0 !important;
+        float: none !important;
+        clear: both !important;
+    }
+
+    .card .card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .section > .card {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .revival-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
+
+    .revival-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
+
+    .revival-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
+
+    .trap-box{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
+
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:4px;
+    }
+
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+    }
+
+    .revival-title,
+    .trap-title{
+        font-size:14px;
+        font-weight:bold;
+        margin-top:10px;
+        margin-bottom:4px;
+    }
+
+    .revival-number,
+    .trap-number{
+        font-size:14px;
+        color:#0066ff;
+        font-weight:bold;
+        margin-bottom:10px;
+    }
+
+    .detect-text{
+        color:#0066ff;
+        font-weight:bold;
+    }
+
+    .bottom-info{
+        font-size:14px;
+        line-height:1.25;
+    }
+
+    .prev-label{
+        display:inline-block;
+        width:90px;
+        text-align:right;
+    }
+
+    .prev-value{
+        display:inline-block;
+        width:80px;
+    }
+
+    </style>
+    
+    </head>
+    <body>
+
+    <a class="back" href="index_link.html">← メニューへ戻る</a>
+
+    
+        <div class="section" id="jyuou">
+            <h2>【LINK】 獣王</h2>
+            <p>予想日：2026-10-07</p>
+
+            <div class='prev-top3-box'><div><b>前日TOP3</b></div><br>
+        <div class="rank-mini-block">
+            <div><b>1位：1154番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：6</span>
+                <span>最大放出：9521</span>
+                <span>差枚：+8000</span>
+                <span>前日周期：nan日</span>
+            </div>
+        </div>
+        
+        <div class="rank-mini-block">
+            <div><b>2位：1155番台</b></div>
+
+            <div class="prev-top3-info">
+                <span>前日設定：3</span>
+                <span>最大放出：2934</span>
+                <span>差枚：+1100</span>
+                <span>前日周期：nan日</span>
+            </div>
+        </div>
+        <hr style='margin:18px 0;'><div><b>前日設定4以上</b></div><br>・1154番台（設定6）<br><br>
+
+            <div class="summary-block">
+                <br>
+                
+            </div>
+
+            <div class="summary-block">
+                <div class='top3-box'>🥇 本命 1154 (8.9pt)<br>🥈 対抗 1155 (1.5pt)<br>🥉 穴 1151 (0.4pt)</div>
+            </div>
+
+            <hr class="section-sep">
+
+            <div class="summary-block">
+                <div class='machine_rank_list'><b>直近5週間 曜日別高設定回数</b><br><div style='display:grid; grid-template-columns:16px 24px 54px 8px auto; width:max-content;'><span></span><span></span><span></span><span></span><span></span><span>月：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/7<span style='font-size:1.12em;'>(0)</span>→9/14<span style='font-size:1.12em;'>(0)</span>→9/21<span style='font-size:1.12em;'>(0)</span>→<span style='color:red;'>9/28</span><span style='font-size:1.12em;'>(0)</span>→10/5<span style='font-size:1.12em;'>(0)</span></span><span></span><span>火：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;1回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'><span style='color:red;'>9/8</span><span style='font-size:1.12em;'>(0)</span>→9/15<span style='font-size:1.12em;'>(0)</span>→9/22<span style='font-size:1.12em;'>(0)</span>→9/29<span style='font-size:1.12em;'>(0)</span>→10/6<span style='font-size:1.12em;'>(1)</span></span><span></span><span style='color:red; font-weight:bold;'>水：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/9<span style='font-size:1.12em;'>(0)</span>→9/16<span style='font-size:1.12em;'>(0)</span>→9/23<span style='font-size:1.12em;'>(0)</span>→9/30<span style='font-size:1.12em;'>(0)</span>→10/7<span style='font-size:1.12em;'>(0)</span></span><span></span><span>木：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/3<span style='font-size:1.12em;'>(0)</span>→9/10<span style='font-size:1.12em;'>(0)</span>→9/17<span style='font-size:1.12em;'>(0)</span>→9/24<span style='font-size:1.12em;'>(0)</span>→10/1<span style='font-size:1.12em;'>(0)</span></span><span></span><span>金：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/4<span style='font-size:1.12em;'>(0)</span>→9/11<span style='font-size:1.12em;'>(0)</span>→<span style='color:red;'>9/18</span><span style='font-size:1.12em;'>(0)</span>→9/25<span style='font-size:1.12em;'>(0)</span>→10/2<span style='font-size:1.12em;'>(0)</span></span><span></span><span>土：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/5<span style='font-size:1.12em;'>(0)</span>→9/12<span style='font-size:1.12em;'>(0)</span>→9/19<span style='font-size:1.12em;'>(0)</span>→9/26<span style='font-size:1.12em;'>(0)</span>→10/3<span style='font-size:1.12em;'>(0)</span></span><span></span><span>日：</span><span style='display:inline-block; width:3.2em; text-align:right; white-space:nowrap;'>&nbsp;0回</span><span></span><span style='font-size:0.82em; white-space:nowrap;'>9/6<span style='font-size:1.12em;'>(0)</span>→9/13<span style='font-size:1.12em;'>(0)</span>→9/20<span style='font-size:1.12em;'>(0)</span>→9/27<span style='font-size:1.12em;'>(0)</span>→10/4<span style='font-size:1.12em;'>(0)</span></span></div></div><br>
+
+                <b>台番順位一覧</b><br>
+                <div class='rank-list'><span class='rank-item'>1149:&nbsp;<span class='rank-top'>5位</span></span>　<span class='rank-item'>1150:&nbsp;8位</span>　<span class='rank-item'>1151:&nbsp;<span class='rank-top'>3位</span></span>　<span class='rank-item'>1152:&nbsp;9位</span>　<span class='rank-item'>1153:&nbsp;7位</span>　<span class='rank-item'>1154:&nbsp;<span class='rank-top'>1位</span></span>　<span class='rank-item'>1155:&nbsp;<span class='rank-top'>2位</span></span>　<span class='rank-item'>1156:&nbsp;6位</span>　<span class='rank-item'>1157:&nbsp;<span class='rank-top'>4位</span></span></div>
+
+                <br><br>
+                <b>全機種総合TOP10入り</b><br>1154：7位
+
+                </div>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        
+                <div class="card" id="machine-1154">
+                    <div class="rank">1位：1154番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">6</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">9521</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">+8000</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">8.87</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">8.87</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>1.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>6.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>-5.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>6.67</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1154 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/1)</div>
+                        <div>復活率2日目(30日)：0.0% (0/1)</div>
+                        <div>復活率3日目(30日)：0.0% (0/1)</div>
+                        <div>復活率4日目(30日)：0.0% (0/1)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 1回 (1/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→6</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→9521</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→+8000</div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: 1日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1155">
+                    <div class="rank">2位：1155番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">3</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">2934</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">+1100</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">1.52</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">1.52</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.60</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>0.92</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1155 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1155 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→3</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→2934</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→+1100</div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1151">
+                    <div class="rank">3位：1151番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">2</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">3290</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">+0</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">0.40</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">0.40</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.40</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>0.00</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1151 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1151 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→2</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→3290</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→+0</div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1157">
+                    <div class="rank">4位：1157番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">-2000</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">nan</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">0.20</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">0.20</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>0.00</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1157 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1157 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→-2000</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→-</div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1149">
+                    <div class="rank">5位：1149番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">1587</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">-300</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">0.08</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">0.08</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>-0.12</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1149 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1149 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→1587</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→<span style="color:red;">-300</span></div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1156">
+                    <div class="rank">6位：1156番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">2070</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">-1200</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">-0.30</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">-0.30</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>-0.50</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1156 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1156 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→2070</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→<span style="color:red;">-1200</span></div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1153">
+                    <div class="rank">7位：1153番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">1888</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">-2000</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">-0.63</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">-0.63</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>-0.83</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1153 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1153 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→1888</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→<span style="color:red;">-2000</span></div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1150">
+                    <div class="rank">8位：1150番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">2187</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">-2300</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">-0.76</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">-0.76</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>-0.96</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1150 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1150 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→2187</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→<span style="color:red;">-2300</span></div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="machine-1152">
+                    <div class="rank">9位：1152番台 [島1]</div><br>
+
+                    <div class="prev-info">
+                        <span class="prev-label">前日設定：</span><span class="prev-value">1</span>
+                        <span class="prev-label">最大放出：</span><span class="prev-value">2406</span><br>
+                        <span class="prev-label">差枚：</span><span class="prev-value">-2500</span>
+                        <span class="prev-label">前日周期：</span><span class="prev-value">nan日</span>
+                    </div>
+
+                    <div class="score-block">
+                        <br>
+                        <b>総合pt:<span class="score">-0.84</span></b><br><br>
+
+                            <div style="margin-left:20px;">
+
+                            <b>standard_pt：<span style="color:#00bcd4;">-0.84</span></b><br><br>
+
+                                <div style="margin-left:24px;">
+                                    └ base : 5ave × 1<br>
+
+                                <div style="
+                                    margin-left:24px;
+                                    display:grid;
+                                    grid-template-columns:110px 14px auto;
+                                    width:max-content;
+                                ">
+                                    <span>├ raw_base</span><span>:</span><span>0.20</span>
+                                    <span>├ prev_high</span><span>:</span><span>0.00</span>
+                                    <span>├ two</span><span>:</span><span>0.00</span>
+                                    <span>├ stay</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_2d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_3d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ rev_4d_ago</span><span>:</span><span>0.00</span>
+                                    <span>├ trap</span><span>:</span><span>0.00</span>
+                                    <span>├ move_5d</span><span>:</span><span>0.00</span>
+                                    <span>├ diff_5d/2</span><span>:</span><span>-1.04</span>
+                                    <span>├ week_5w</span><span>:</span><span>0.00</span>
+                                    <span>├ cycle</span><span>:</span><span>0.00</span>
+                                    <span>└ eve_6eve</span><span>:</span><span>0.00</span>
+                                </div>
+                            </div>
+                            <br>
+
+                        <div style="display:grid; grid-template-columns:100px 12px auto; width:max-content;">
+                            <b>link_t/w_pt</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">0.00</span></b>
+
+                            <b>連動倍率</b>
+                            <b>:</b>
+                            <b><span style="color:#00bcd4;">1倍</span></b>
+                        </div>
+                        
+                    </div>
+
+                    <div class="link-info">
+                        <b>top1 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>6 : 1154 (1日前) →1152 連動率：0/1 (0%) pt：0.00</span><br><br><b>top2 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><br><b>top3 連動</b><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (3日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (2日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><span style='font-size:14px !important; line-height:1.25 !important;'>- : None (1日前) →1152 連動率：0/0 (0%) pt：0.00</span><br><br>
+                    </div>
+
+                    <div class="bottom-info">
+                        
+                        <div>据え置き率 (30日)：0.0% (0/0)</div>
+                        <div>復活率2日目(30日)：0.0% (0/0)</div>
+                        <div>復活率3日目(30日)：0.0% (0/0)</div>
+                        <div>復活率4日目(30日)：0.0% (0/0)</div>
+
+                        <br>
+
+                        <div><span style="display:inline-block;width:50px;">高設定</span>: 0回 (0/30)</div>
+                        <div><span style="display:inline-block;width:50px;">設定</span>: 0→0→0→0→0→0→1</div>
+                        <div><span style="display:inline-block;width:50px;">放出</span>: -→-→-→-→-→-→2406</div>
+                        <div><span style="display:inline-block;width:50px;">差枚</span>: -→-→-→-→-→-→<span style="color:red;">-2500</span></div>
+                        <div><span style="display:inline-block;width:50px;">イベ率</span>: 0.0% (0/0)</div>
+                        <div><span style="display:inline-block;width:50px;">周期</span>: -日</div>
+                        </div>
+                    </div>
+                </div>
+                
+        
+
+    </body>
+    </html>
+    
